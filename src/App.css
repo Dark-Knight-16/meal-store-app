@@ -1,38 +1,333 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Golos+Text&family=Lato&family=Rubik&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  text-decoration: none;
+}
+
+:root {
+  --text-color: rgb(45, 40, 40);
+  --bg-pink: #fdebed;
+  --color-hover: #fc2947;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  background-color: var(--bg-pink);
+}
+.nav {
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+.logo a {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+.navlinks {
+  display: flex;
+}
+.navlinks li {
+  list-style: none;
+  margin: 0 10px;
+}
+.navlinks li a {
+  color: var(--text-color);
+}
+.navlinks li a:hover {
+  color: var(--color-hover);
+}
+@media screen and (max-width: 1200px) {
+  .nav {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nav {
+    width: 100%;
+    padding: 20px 8px;
+  }
+  .navlinks li a {
+    font-size: 14px;
+  }
+}
+/* Meals */
+.meals {
+  display: grid;
+  width: 90%;
+  max-width: 1200px;
+  margin: 50px auto;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.loading-no-match {
+  text-align: center;
+  margin: 50px 0;
+}
+.single-meal {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.single-meal > img {
+  width: 100%;
+  object-fit: cover;
+}
+.meal-text {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.meal-text > button {
+  padding: 5px;
+  background: transparent;
+  border: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.4s ease-in-out;
+}
+
+.meal-text > button:hover {
+  color: var(--color-hover);
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 900px) {
+  .meals {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .meals {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Search Box */
+.searchbox {
+  width: 100%;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.searchbox > form {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.searchbox > form > input {
+  padding: 10px;
+  width: 300px;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+.searchbox > form > button {
+  padding: 8px 10px;
+  font-size: 16px;
+  background-color: #fdebed;
+  border: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid black;
+}
+.searchbox > form > button:hover {
+  color: var(--color-hover);
+}
+@media screen and (max-width: 1200px) {
+  .searchbox {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .searchbox > form {
+    justify-content: center;
+  }
+}
+
+.nothing-in-favorite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 200px;
+  max-width: 1200px;
+  margin: auto;
+}
+.nothing-in-favorite h3 {
+  color: var(--text-color);
+}
+
+.favorites-header {
+  width: 90%;
+  max-width: 1200px;
+  margin: 100px auto;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.favorites-header h2 {
+  color: var(--text-color);
+}
+.favorites {
+  display: grid;
+  width: 90%;
+  max-width: 1200px;
+  margin: 50px auto;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.favorite-meal {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.favorite-meal > img {
+  width: 100%;
+  object-fit: cover;
+}
+.favorite-text {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.favorite-text > button {
+  padding: 5px;
+  background: transparent;
+  border: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.4s ease-in-out;
+}
+.favorite-text > button:hover {
+  color: #e90064;
+  transform: translateY(-2px);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (max-width: 900px) {
+  .favorites {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media screen and (max-width: 500px) {
+  .favorites {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*  filter */
+.filter-meals {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+.filter-meals h3 {
+  color: var(--text-color);
+}
+.filter {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+  flex-direction: column;
+}
+
+.by-category button {
+  margin: 5px 10px 5px 0;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  padding: 4px;
+  border: 2px solid var(--bg-pink);
+}
+
+.by-country button {
+  margin: 5px 10px 5px 0;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  padding: 4px;
+  border: 2px solid var(--bg-pink);
+}
+
+@media screen and (max-width: 500px) {
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: grid;
+  place-items: center;
+}
+.modal-container {
+  background-color: white;
+  width: 90%;
+  height: 800px;
+  max-width: 800px;
+  overflow: scroll;
+}
+.close-modal {
+  display: none;
+}
+.modal-container img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+.modal-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 25px;
+  gap: 15px;
+  color: var(--text-color);
 }
-
-.App-link {
-  color: #61dafb;
+.modal-text p {
+  word-spacing: 4px;
+  line-height: 25px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.modal-links {
+  display: grid;
+  gap: 15px;
+}
+@media screen and (max-width: 500px) {
+  .modal-container img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
   }
-  to {
-    transform: rotate(360deg);
+  .modal {
+    height: 100vh;
   }
+  .modal-container {
+    height: 100%;
+    max-height: 100%;
+    background-color: none;
+  }
+}
+.modal-links button {
+  width: 60px;
+  color: red;
+  background: transparent;
+  border: 2px solid red;
+  border-radius: 4px;
+  padding: 4px;
+  cursor: pointer;
 }
